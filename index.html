@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>ESP32 Temperatur</title>
+
+  <!-- MQTT.js -->
+  <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding-top: 50px;
+    }
+    .temp {
+      font-size: 4em;
+      margin-top: 20px;
+    }
+    .status {
+      margin-top: 20px;
+      color: #aaa;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>ESP32 Temperatur</h1>
+  <div class="temp" id="temp">-- °C</div>
+  <div class="status" id="status">Verbinde…</div>
+
+  <script>
+    const brokerUrl = "wss://DEIN-BROKER.hivemq.cloud:8884/mqtt";
+
+    const options = {
+      username: "MQTT_USERNAME",
+      password: "MQTT_PASSWORT",
+      reconnectPeriod: 3000
+    };
+
+    const client = mqtt.connect(brokerUrl, options);
+
+    client.on("connect", () => {
+      document.getElementById("status").innerText = "Verbunden";
+      client.subscribe("esp32/temperature");
+    });
+
+    client.on("message", (topic, message) => {
+      document.getElementById("temp").innerText =
+        message.toString() + " °C";
+    });
+
+    client.on("error", () => {
+      document.getElementById("status").innerText = "Fehler";
+    });
+  </script>
+</body>
+</html>
