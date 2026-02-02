@@ -55,13 +55,6 @@
       margin-top: 40px;
     }
 
-    /* Smoker Graphic */
-    .smoker {
-      display: flex;
-      align-items: center;
-      position: relative;
-    }
-
     .chimney {
       width: 60px;
       height: 140px;
@@ -82,11 +75,19 @@
     }
 
     .main-box {
+      position: fixed;
       display: flex;
-      background: #666;
+      background: red;
       padding: 14px;
       border-radius: 20px;
-      margin-left: -10px;
+      width: 500px;
+      height: 300px;
+      left: calc(50vw - 250px);
+      top: calc(50vh - 150px);
+      border-top-left-radius: 20px;
+      border-top-right-radius: 90px;
+      border-bottom-left-radius: 90px;
+      border-bottom-right-radius: 20px;
     }
 
     .side-box {
@@ -158,7 +159,6 @@
   </header>
 
   <main>
-    <div class="smoker">
       <div class="chimney">
         <div class="smoke"></div>
       </div>
@@ -174,7 +174,6 @@
         <div class="heat yellow"></div>
         <div class="heat orange"></div>
       </div>
-    </div>
 
     <div class="temps">
       <div class="temp left">170 °C</div>
