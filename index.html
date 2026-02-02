@@ -60,13 +60,13 @@
       height: 500px;
       background: #888;
       border-top-left-radius: 10px;
-      border-top-right-radius: 90px;
+      border-top-right-radius: 50px;
       border-bottom-left-radius: 90px;
       border-bottom-right-radius: 0px;
       position: fixed;
       display: flex;
-      left: calc(50vw - 350px);
-      top: calc(50vh - 300px);
+      left: calc(50vw - 450px);
+      top: calc(50vh - 350px);
       z-index: 9;
     }
     .chimney-back {
@@ -75,8 +75,8 @@
       background: #888;
       position: fixed;
       display: flex;
-      left: calc(50vw - 250px);
-      top: calc(50vh + 50px);
+      left: calc(50vw - 350px);
+      top: calc(50vh + 100px);
       z-index: 7;
     }
 
@@ -98,7 +98,7 @@
       padding: 14px;
       width: 500px;
       height: 300px;
-      left: calc(50vw - 250px);
+      left: calc(50vw - 350px);
       top: calc(50vh - 150px);
       border-top-left-radius: 20px;
       border-top-right-radius: 90px;
@@ -114,24 +114,13 @@
       padding: 12px;
       width: 300px;
       height: 200px;
-      left: calc(50vw + 150px);
-      top: 50vh;
-      border-top-left-radius: 0px;
-      border-top-right-radius: 90px;
-      border-bottom-left-radius: 0px;
-      border-bottom-right-radius: 20px;
-      z-index: 10;
-    }
-
-    .side-box-back {
-      position: fixed;
-      display: flex;
-      background: yellow;
-      width: 100px;
-      height: 100px;
       left: calc(50vw + 50px);
       top: calc(50vh + 50px);
-      z-index: 8;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 90px;
+      border-bottom-left-radius: 90px;
+      border-bottom-right-radius: 20px;
+      z-index: 10;
     }
 
     /* Heat blocks */
@@ -211,7 +200,6 @@
         <div class="heat yellow"></div>
         <div class="heat orange"></div>
       </div>
-      <div class="side-box-back"></div>
 
     <div class="temps">
       <div class="temp left">170 °C</div>
