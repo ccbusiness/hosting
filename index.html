@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="UTF-8">
   <title>Connect Bridge</title>
+  <link rel="stylesheet" href="style.css">
 
   <!-- MQTT.js -->
   <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
@@ -15,54 +17,171 @@
       height: 100vh;
       width: 100vw;
     }
-    .site-wrapper {
-      padding-left: 25px;
-      padding-right: 25px;
-      padding-top: 25px;
-      padding-bottom: 25px;
-      height: 100%;
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+    }
+
+    .title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      background: #2cff2c;
+      border-radius: 50%;
+    }
+
+    .name {
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .version {
+      font-size: 16px;
+    }
+
+    /* Main */
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 40px;
+    }
+
+    /* Smoker Graphic */
+    .smoker {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .chimney {
+      width: 60px;
+      height: 140px;
+      background: #888;
+      border-radius: 30px 30px 10px 10px;
+      position: relative;
+    }
+
+    .smoke {
+      width: 30px;
+      height: 30px;
+      background: #aaa;
+      border-radius: 50% 50% 0 50%;
+      position: absolute;
+      top: -20px;
+      left: 15px;
+      transform: rotate(-30deg);
+    }
+
+    .main-box {
+      display: flex;
+      background: #666;
+      padding: 14px;
+      border-radius: 20px;
+      margin-left: -10px;
+    }
+
+    .side-box {
+      display: flex;
+      background: #777;
+      padding: 12px;
+      border-radius: 18px;
+      margin-left: 10px;
+    }
+
+    /* Heat blocks */
+    .heat {
+      width: 40px;
+      height: 70px;
+      border-radius: 0 0 30px 0;
+    }
+
+    .red {
+      background: #ff2d2d;
+    }
+
+    .light-red {
+      background: #ff6a6a;
+    }
+
+    .dark-red {
+      background: #b82a2a;
+    }
+
+    .yellow {
+      background: #ffe15a;
+    }
+
+    .orange {
+      background: #ffc04a;
+    }
+
+    /* Temps */
+    .temps {
+      display: flex;
       width: 100%;
+      justify-content: space-around;
+      margin-top: 40px;
     }
-    .test-box {
-      height: 100%;
-      width: 100%;
-      background-color: green;
+
+    .temp {
+      font-size: 48px;
+      font-weight: bold;
     }
-    .connect-box {
-      padding: 10px;
-      border-radius: 25px;
-      background: rgba(255, 255, 255, 0.2); /* halbtransparentes Weiß */
-      backdrop-filter: blur(10px); /* der Unschärfe-Effekt */
-      -webkit-backdrop-filter: blur(10px); /* Safari-Unterstützung */
-      border: 1px solid rgba(255, 255, 255, 0.3); /* leichte Umrandung */
-      color: #fff;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+
+    .temp.left {
+      color: #ff2d2d;
     }
-    .smoker-main-box {
-      height: 300px;
-      width: 500px;
-      color: #565656;
-      border-top-left-radius: 20px;
-      border-top-right-radius: 90px;
-      border-bottom-left-radius: 90px;
-      border-bottom-right-radius: 20px;
+
+    .temp.right {
+      color: #ffc04a;
     }
   </style>
 </head>
 
 <body>
-  
-  <div class="site-wrapper">
-    <div class="test-box">
-      <div class="connect-box">Verbunden</div>
-      <div class="display">
-        <div class="smoker-main-box">
 
-        </div>
+  <header>
+    <div class="title">
+      <span class="status-dot"></span>
+      <span class="name">Smoker</span>
+    </div>
+    <span class="version">v1.2</span>
+  </header>
+
+  <main>
+    <div class="smoker">
+      <div class="chimney">
+        <div class="smoke"></div>
+      </div>
+
+      <div class="main-box">
+        <div class="heat red"></div>
+        <div class="heat light-red"></div>
+        <div class="heat red"></div>
+        <div class="heat dark-red"></div>
+      </div>
+
+      <div class="side-box">
+        <div class="heat yellow"></div>
+        <div class="heat orange"></div>
       </div>
     </div>
-  </div>
-  
+
+    <div class="temps">
+      <div class="temp left">170 °C</div>
+      <div class="temp right">340 °C</div>
+    </div>
+  </main>
+
 </body>
-  
+
 </html>
