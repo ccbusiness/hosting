@@ -56,11 +56,28 @@
     }
 
     .chimney {
-      width: 60px;
-      height: 140px;
+      width: 100px;
+      height: 500px;
       background: #888;
-      border-radius: 30px 30px 10px 10px;
-      position: relative;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 90px;
+      border-bottom-left-radius: 90px;
+      border-bottom-right-radius: 0px;
+      position: fixed;
+      display: flex;
+      left: calc(50vw - 350px);
+      top: calc(50vh - 450px);
+      z-index: 9;
+    }
+    .chimney-back {
+      width: 100px;
+      height: 100px;
+      background: #888;
+      position: fixed;
+      display: flex;
+      left: calc(50vw - 250px);
+      top: calc(50vh + 150px);
+      z-index: 7;
     }
 
     .smoke {
@@ -87,6 +104,7 @@
       border-top-right-radius: 90px;
       border-bottom-left-radius: 90px;
       border-bottom-right-radius: 20px;
+      z-index: 11;
     }
 
     .side-box {
@@ -102,7 +120,18 @@
       border-top-right-radius: 90px;
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 20px;
-      
+      z-index: 10;
+    }
+
+    .side-box-back {
+      position: fixed;
+      display: flex;
+      background: yellow;
+      width: 100px;
+      height: 100px;
+      left: calc(50vw + 50px);
+      top: 50vh;
+      z-index: 8;
     }
 
     /* Heat blocks */
@@ -169,6 +198,7 @@
       <div class="chimney">
         <div class="smoke"></div>
       </div>
+      <div class="chimney-back"></div>
 
       <div class="main-box">
         <div class="heat red"></div>
@@ -181,6 +211,7 @@
         <div class="heat yellow"></div>
         <div class="heat orange"></div>
       </div>
+      <div class="side-box-back"></div>
 
     <div class="temps">
       <div class="temp left">170 °C</div>
